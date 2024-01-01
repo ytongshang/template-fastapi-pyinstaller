@@ -1,12 +1,13 @@
 import subprocess
 
 packages = [
+    # pyinstaller
+    "pyinstaller",
     # http
     "aiohttp",
     "fastapi",
     # mysql
     "sqlmodel",
-    "pymysql",
     # 基础包
     "colorlog",
     "pydantic",
