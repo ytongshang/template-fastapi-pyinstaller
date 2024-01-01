@@ -1,9 +1,9 @@
 import uvicorn
+from clio import SessionMiddleware, common_exception_handlers, hack_json
+from clio.web.context.middleware import RawContextMiddleware
 from fastapi import FastAPI
 from starlette.responses import RedirectResponse
 
-from clio import SessionMiddleware, common_exception_handlers, hack_json
-from clio.web.context.middleware import RawContextMiddleware
 from example.controller.test_controller import test_api_router
 from example.database.database import db
 
@@ -40,4 +40,4 @@ def init_database():
 app = create_app()
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
