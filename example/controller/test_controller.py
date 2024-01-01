@@ -1,3 +1,4 @@
+import asyncio
 from typing import List
 
 from fastapi import APIRouter
@@ -10,6 +11,13 @@ from example.database.models import Hero
 from example.model.test import TestBody, TestResp
 
 test_api_router = APIRouter(prefix="/test")
+
+
+@test_api_router.get("/concurrent")
+async def concurrent():
+    Log.info("eeeeeeeeeeeee")
+    await asyncio.sleep(1000000000)
+    return HttpResponse.success(True)
 
 
 @test_api_router.post("/test")
